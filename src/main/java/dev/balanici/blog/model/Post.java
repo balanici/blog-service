@@ -1,23 +1,30 @@
 package dev.balanici.blog.model;
 
+import lombok.Data;
+
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
+@Data
 public class Post {
     private UUID id;
     private String title;
     private String content;
-//    private String author;
-    private String date;
-    private String status;
-    private String category;
-    private String tags;
-    private String comments;
-    private String likes;
-    private String dislikes;
-    private String shares;
-    private String views;
-    private String image;
-    private String video;
-    private String audio;
+    //    private Author author;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
+    private PostStatus postStatus;
+
+    //    private String category;
+    private List<String> tags;
+    private String comments;
+    private Integer likes;
+    private Integer dislikes;
+    private Integer shares;
+    private Integer views;
+//    private String imageUrl;
+//    private String videoUrl;
+//    private String audioUrl;
 }
