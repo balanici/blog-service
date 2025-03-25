@@ -68,7 +68,9 @@ public class PostServiceImpl implements PostService {
         postRepository.deleteById(id);
     }
 
-    private PostEntity findPostEntityById(UUID id) {
+    @Override
+    @Transactional(readOnly = true)
+    public PostEntity findPostEntityById(UUID id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Post with id " + id + " not found"));
     }

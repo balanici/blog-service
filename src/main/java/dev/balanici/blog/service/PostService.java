@@ -1,5 +1,6 @@
 package dev.balanici.blog.service;
 
+import dev.balanici.blog.entity.PostEntity;
 import dev.balanici.blog.model.Post;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface PostService {
     Post updatePost(UUID id, Post post);
 
     void deletePost(UUID id);
+
+    PostEntity findPostEntityById(UUID id);
 }

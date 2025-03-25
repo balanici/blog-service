@@ -1,53 +1,50 @@
 package dev.balanici.blog.service;
 
+import dev.balanici.blog.entity.CommentEntity;
 import dev.balanici.blog.model.Comment;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface CommentService {
 
-    // Create a new comment
-    Comment createComment(Long postId, Comment comment);
+    Comment createComment(UUID postId, Comment comment);
 
-    // Update an existing comment
-    Comment updateComment(Long commentId, Comment comment);
+    Comment updateComment(UUID commentId, Comment comment);
 
-    // Delete a specific comment
-    void deleteComment(Long commentId);
+    void deleteComment(UUID commentId, UUID postId);
 
     // Soft delete a comment (mark as deleted without removing from database)
-//    void softDeleteComment(Long commentId);
+//    void softDeleteComment(UUID commentId);
 
-    // Get a specific comment by its ID
-    Comment getCommentById(Long commentId);
+    Comment getCommentById(UUID commentId);
 
-    // Get all comments for a specific post
-    List<Comment> getCommentsByPostId(Long postId);
+    List<Comment> getCommentsByPostId(UUID postId);
 
     // Get paginated comments for a post
-//    Page<Comment> getCommentsByPostId(Long postId, Pageable pageable);
+//    Page<Comment> getCommentsByPostId(UUID postId, Pageable pageable);
 
     // Get comments by a specific user
-//    List<Comment> getCommentsByUserId(Long userId);
+//    List<Comment> getCommentsByUserId(UUID userId);
 
     // Get comments within a date range
 //    List<Comment> getCommentsBetweenDates(LocalDateTime startDate, LocalDateTime endDate);
 
     // Approve a comment (for moderation workflow)
-//    Comment approveComment(Long commentId);
+//    Comment approveComment(UUID commentId);
 
     // Reject a comment
-//    Comment rejectComment(Long commentId);
+//    Comment rejectComment(UUID commentId);
 
     // Remove inappropriate content from a comment
-//    Comment sanitizeCommentContent(Long commentId);
+//    Comment sanitizeCommentContent(UUID commentId);
 
 
     // Add a reply to a comment (nested comments)
-//    Comment addReplyToComment(Long parentCommentId, Comment replyComment);
+//    Comment addReplyToComment(UUID parentCommentId, Comment replyComment);
 
     // Get all replies to a specific comment
-//    List<Comment> getRepliesByCommentId(Long parentCommentId);
+//    List<Comment> getRepliesByCommentId(UUID parentCommentId);
 
     // Search comments by content
 //    List<Comment> searchCommentsByContent(String searchTerm);
@@ -58,14 +55,14 @@ public interface CommentService {
     // Get most recent comments across all posts
 //    List<Comment> getRecentComments(int limit);
 
-    // Count total comments for a post
-    long countCommentsByPostId(Long postId);
+    long countCommentsByPostId(UUID postId);
 
     // Count total comments by a user
-//    long countCommentsByUserId(Long userId);
+//    long countCommentsByUserId(UUID userId);
 
     // Get comment statistics (total, approved, rejected)
 //    CommentStatistics getCommentStatistics();
 
+    CommentEntity findCommentEntity(UUID commentId);
 
 }

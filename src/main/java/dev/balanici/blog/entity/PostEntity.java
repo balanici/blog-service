@@ -36,7 +36,7 @@ public class PostEntity {
     @Column(nullable = false)
     private PostStatus postStatus;
 
-    @OneToMany
+    @OneToMany(mappedBy = "postEntity")
     private List<CommentEntity> comments;
 
 
