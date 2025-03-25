@@ -1,30 +1,24 @@
 package dev.balanici.blog.model;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Data
 public class Post {
     private UUID id;
+    @NotNull
     private String title;
+    @NotNull
     private String content;
-    //    private Author author;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 
     private PostStatus postStatus;
 
-    //    private String category;
-    private List<String> tags;
-    private String comments;
-    private Integer likes;
-    private Integer dislikes;
-    private Integer shares;
     private Integer views;
-//    private String imageUrl;
-//    private String videoUrl;
-//    private String audioUrl;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
 }

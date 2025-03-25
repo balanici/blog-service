@@ -2,6 +2,7 @@ package dev.balanici.blog.controller;
 
 import dev.balanici.blog.model.Post;
 import dev.balanici.blog.service.PostService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<Post> createPost(Post post) {
+    public ResponseEntity<Post> createPost(@RequestBody @Valid Post post) {
         return ResponseEntity.ok(postService.createPost(post));
     }
 
@@ -32,7 +33,7 @@ public class PostController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Post> updatePost(@PathVariable UUID id, Post post) {
+    public ResponseEntity<Post> updatePost(@PathVariable UUID id, @RequestBody @Valid Post post) {
         return ResponseEntity.ok(postService.updatePost(id, post));
     }
 
