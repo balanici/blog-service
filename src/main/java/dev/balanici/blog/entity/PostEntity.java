@@ -10,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -34,6 +35,9 @@ public class PostEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private PostStatus postStatus;
+
+    @OneToMany
+    private List<CommentEntity> comments;
 
 
     private Integer views;

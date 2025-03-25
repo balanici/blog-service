@@ -6,10 +6,7 @@ public enum PostStatus {
     ARCHIVED("ARCHIVED"),
     DELETED("DELETED");
 
-    private final String value;
-
 
     PostStatus(String value) {
-        this.value = value;
     }
 }
