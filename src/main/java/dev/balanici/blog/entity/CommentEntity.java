@@ -23,7 +23,8 @@ public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @NotNull
+
+    @Column(nullable = false)
     private String content;
 
     @ManyToOne

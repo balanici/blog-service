@@ -9,4 +9,5 @@ public enum PostStatus {
 
     PostStatus(String value) {
     }
+
 }
