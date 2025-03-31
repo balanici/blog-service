@@ -50,10 +50,12 @@ class PostControllerTest {
     @Test
     void testCreatePost() throws Exception {
         Post requestPost = new Post();
+        requestPost.setTitle("New Post Title");
         requestPost.setContent("New Post Content");
 
         Post savedPost = new Post();
         savedPost.setId(UUID.randomUUID());
+        savedPost.setTitle("New Post Title");
         savedPost.setContent("New Post Content");
 
         Mockito.when(postService.createPost(any(Post.class))).thenReturn(savedPost);
@@ -85,10 +87,12 @@ class PostControllerTest {
     void testUpdatePost() throws Exception {
         UUID postId = UUID.randomUUID();
         Post requestPost = new Post();
+        requestPost.setTitle("Updated Title");
         requestPost.setContent("Updated Content");
 
         Post updatedPost = new Post();
         updatedPost.setId(postId);
+        requestPost.setTitle("Updated Title");
         updatedPost.setContent("Updated Content");
 
         Mockito.when(postService.updatePost(eq(postId), any(Post.class))).thenReturn(updatedPost);
